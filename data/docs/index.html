@@ -1,0 +1,79 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/docs/index.html b/docs/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..92689b0a2c26a8c496a983756a343685943dfa77
+--- /dev/null
++++ b/docs/index.html
+@@ -0,0 +1,69 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="utf-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1" />
++    <title>Weather Explorer</title>
++    <link rel="stylesheet" href="styles.css" />
++  </head>
++  <body>
++    <header class="hero">
++      <div class="hero__content">
++        <h1>Weather Explorer</h1>
++        <p>Browse curated forecasts for popular cities, filter by name, and inspect each multi-day outlook.</p>
++        <a
++          class="hero__cta"
++          href="https://github.com/your-username/weather"
++          target="_blank"
++          rel="noreferrer"
++        >
++          Fork on GitHub
++        </a>
++      </div>
++      <div class="hero__illustration" aria-hidden="true">
++        <div class="cloud cloud--one"></div>
++        <div class="cloud cloud--two"></div>
++        <div class="sun"></div>
++      </div>
++    </header>
++
++    <main class="container">
++      <section class="controls" aria-label="Search controls">
++        <label class="controls__label" for="search">Search by city or state</label>
++        <input id="search" name="search" type="search" placeholder="Start typing a city or state" autocomplete="off" />
++        <p class="controls__hint">Showing <span id="result-count">0</span> of <span id="total-count">0</span> cities.</p>
++      </section>
++
++      <section id="results" class="results" aria-live="polite">
++        <template id="city-template">
++          <article class="city-card">
++            <header class="city-card__header">
++              <h2 class="city-card__title"></h2>
++              <p class="city-card__subtitle"></p>
++            </header>
++            <dl class="city-card__meta">
++              <div>
++                <dt>Latitude</dt>
++                <dd class="city-card__latitude"></dd>
++              </div>
++              <div>
++                <dt>Longitude</dt>
++                <dd class="city-card__longitude"></dd>
++              </div>
++            </dl>
++            <ul class="city-card__forecast"></ul>
++          </article>
++        </template>
++      </section>
++    </main>
++
++    <footer class="footer">
++      <p>
++        Built with vanilla HTML, CSS, and JavaScript. Fork the project or deploy it to GitHub Pages
++        by serving the <code>docs</code> folder.
++      </p>
++    </footer>
++
++    <script src="app.js" type="module"></script>
++  </body>
++</html>
+ 
+EOF
+)
