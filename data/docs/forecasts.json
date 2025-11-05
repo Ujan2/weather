@@ -1,0 +1,45 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/docs/forecasts.json b/docs/forecasts.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..2d9f36d8a0e3125c895391bd17972d9b7fb7102d
+--- /dev/null
++++ b/docs/forecasts.json
+@@ -0,0 +1,35 @@
++[
++  {
++    "city": "San Francisco",
++    "state": "CA",
++    "latitude": 37.7749,
++    "longitude": -122.4194,
++    "forecast": [
++      {"day": "Monday", "condition": "Partly cloudy", "high": 68, "low": 55, "precipitation_chance": 10},
++      {"day": "Tuesday", "condition": "Sunny", "high": 70, "low": 56, "precipitation_chance": 0},
++      {"day": "Wednesday", "condition": "Foggy", "high": 64, "low": 54, "precipitation_chance": 20}
++    ]
++  },
++  {
++    "city": "New York",
++    "state": "NY",
++    "latitude": 40.7128,
++    "longitude": -74.0060,
++    "forecast": [
++      {"day": "Monday", "condition": "Thunderstorms", "high": 82, "low": 68, "precipitation_chance": 70},
++      {"day": "Tuesday", "condition": "Rain", "high": 75, "low": 65, "precipitation_chance": 60},
++      {"day": "Wednesday", "condition": "Cloudy", "high": 78, "low": 63, "precipitation_chance": 30}
++    ]
++  },
++  {
++    "city": "Chicago",
++    "state": "IL",
++    "latitude": 41.8781,
++    "longitude": -87.6298,
++    "forecast": [
++      {"day": "Monday", "condition": "Windy", "high": 70, "low": 58, "precipitation_chance": 15},
++      {"day": "Tuesday", "condition": "Sunny", "high": 73, "low": 57, "precipitation_chance": 5},
++      {"day": "Wednesday", "condition": "Showers", "high": 68, "low": 55, "precipitation_chance": 40}
++    ]
++  }
++]
+ 
+EOF
+)
